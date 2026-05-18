@@ -1,10 +1,13 @@
 import { Router } from "express";
-import { register, getMe, refreshToken, logout} from "../controllers/auth.controller.js";
+import { register, getMe, refreshToken, login, logout, logoutAll} from "../controllers/auth.controller.js";
 
 const authRouter = Router();
 
 /* POST /api/auth/register */
 authRouter.post("/register", register)
+
+/* POST /api/auth/login */
+authRouter.post("/login", login)
 
 /* GET /api/auth/get-me */
 authRouter.get("/get-me", getMe)
@@ -14,5 +17,8 @@ authRouter.get("/refresh-token", refreshToken)
 
 /* GET /api/auth/logout */
 authRouter.get("/logout", logout)
+
+/* GET /api/auth/logout-all */
+authRouter.get("/logout-all", logoutAll)
 
 export default authRouter;
